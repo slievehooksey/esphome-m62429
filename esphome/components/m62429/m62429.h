@@ -39,7 +39,7 @@ template<typename... Ts> class SetChannelLevelAction : public Action<Ts...>, pub
   TEMPLATABLE_VALUE(uint8_t, level)
   TEMPLATABLE_VALUE(uint8_t, channel)
 
-  void play(Ts... x) override {
+  void play(const Ts &...x) override {
     auto level = this->level_.value(x...);
     auto channel = this->channel_.value(x...);
     this->parent_->set_level(level, channel);
@@ -50,7 +50,7 @@ template<typename... Ts> class IncreaseAction : public Action<Ts...>, public Par
  public:
   TEMPLATABLE_VALUE(uint8_t, channel)
 
-  void play(Ts... x) override {
+  void play(const Ts &...x) override {
     auto channel = this->channel_.value(x...);
     this->parent_->increase(channel);
   }
@@ -60,7 +60,7 @@ template<typename... Ts> class DecreaseAction : public Action<Ts...>, public Par
  public:
   TEMPLATABLE_VALUE(uint8_t, channel)
 
-  void play(Ts... x) override {
+  void play(const Ts &...x) override {
     auto channel = this->channel_.value(x...);
     this->parent_->decrease(channel);
   }
@@ -68,17 +68,17 @@ template<typename... Ts> class DecreaseAction : public Action<Ts...>, public Par
 
 template<typename... Ts> class MuteAction : public Action<Ts...>, public Parented<m62429Controller> {
  public:
-  void play(Ts... x) override { this->parent_->mute(); }
+  void play(const Ts &...x) override { this->parent_->mute(); }
 };
 
 template<typename... Ts> class UnmuteAction : public Action<Ts...>, public Parented<m62429Controller> {
  public:
-  void play(Ts... x) override { this->parent_->unmute(); }
+  void play(const Ts &...x) override { this->parent_->unmute(); }
 };
 
 template<typename... Ts> class ToggleMuteAction : public Action<Ts...>, public Parented<m62429Controller> {
  public:
-  void play(Ts... x) override { this->parent_->toggle_mute(); }
+  void play(const Ts &...x) override { this->parent_->toggle_mute(); }
 };
 
 }  // namespace m62429
