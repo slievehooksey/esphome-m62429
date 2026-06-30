@@ -49,6 +49,7 @@ async def to_code(config):
             cv.Required(CONF_CHANNEL): cv.templatable(validate_channel),
         },
     ),
+    synchronous=True,
 )
 async def m62492_set_level_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
@@ -69,6 +70,7 @@ async def m62492_set_level_to_code(config, action_id, template_arg, args):
             cv.Required(CONF_CHANNEL): cv.templatable(validate_channel),
         },
     ),
+    synchronous=True,
 )
 async def m62492_increase_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
@@ -87,6 +89,7 @@ async def m62492_increase_to_code(config, action_id, template_arg, args):
             cv.Required(CONF_CHANNEL): cv.templatable(validate_channel),
         },
     ),
+    synchronous=True,
 )
 async def m62492_decrease_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
@@ -104,6 +107,7 @@ async def m62492_decrease_to_code(config, action_id, template_arg, args):
             cv.GenerateID(): cv.use_id(m62429Controller),
         },
     ),
+    synchronous=True,
 )
 async def m62492_mute_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
@@ -119,6 +123,7 @@ async def m62492_mute_to_code(config, action_id, template_arg, args):
             cv.GenerateID(): cv.use_id(m62429Controller),
         },
     ),
+    synchronous=True,
 )
 async def m62492_unmute_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
@@ -134,6 +139,7 @@ async def m62492_unmute_to_code(config, action_id, template_arg, args):
             cv.GenerateID(): cv.use_id(m62429Controller),
         },
     ),
+    synchronous=True,
 )
 async def m62492_toggle_mute_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
